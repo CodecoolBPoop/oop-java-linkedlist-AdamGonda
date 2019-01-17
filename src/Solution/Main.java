@@ -6,7 +6,7 @@ import Solution.SinglyLinkedList.Node;
 public class Main {
     public static void main(String[] args) {
         //    Implement a SinglyLinkedList (nodes only reference the next node in the list) with these methods:
-        //    getItemAt / head / tail / length / insert / remove
+        //    getItemAt / head / tail / length / add / remove
         //    Implement a DoublyLinkedList (nodes have a reference for both the previous and next node in the list)
         //    Write unit tests!
 
