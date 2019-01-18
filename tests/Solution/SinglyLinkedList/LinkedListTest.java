@@ -74,7 +74,7 @@ class LinkedListTest {
     }
 
     @Test
-    void testInsert(){
+    void testInsertAtIndex(){
         LinkedList<Integer> singly = new LinkedList<>();
 
         singly.insert(1,0);
@@ -87,17 +87,30 @@ class LinkedListTest {
     }
 
     @Test
+    void testInsert(){
+        LinkedList<Integer> singly = new LinkedList<>();
+
+        singly.insert(1);
+        singly.insert(2);
+        singly.insert(3);
+
+        assertEquals(1, singly.getHead());
+        assertEquals(3, singly.getTail());
+        assertEquals(2, singly.getItemAt(1).data);
+    }
+
+    @Test
     void testRemove(){
         LinkedList<Integer> singly = new LinkedList<>();
         assertThrows(NoSuchElementException.class, () -> singly.remove(1));
 
-
-        singly.insert(5, 0);
+        singly.insert(5);
 
         assertEquals(5,singly.getHead());
 
         singly.remove(5);
         assertNull(singly.getHead());
+        assertNull(singly.getTail());
 
         assertThrows(NoSuchElementException.class, () -> singly.remove(5));
 
@@ -116,5 +129,4 @@ class LinkedListTest {
         assertEquals(4, singly_2.getTail());
         assertEquals(2, singly_2.getHead());
     }
-
 }

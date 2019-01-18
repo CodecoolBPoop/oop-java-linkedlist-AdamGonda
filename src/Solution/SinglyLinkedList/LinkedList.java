@@ -59,6 +59,25 @@ public class LinkedList<T> {
         }
     }
 
+    public void insert(T data){
+        addLoopVersion(data);
+    }
+
+    public void insert(T data, int index){
+        //if index is too big throw exception
+        if(head != null){
+            Node<T> targetNode = getItemAt(index);
+            targetNode.data = data;
+        }else{
+            if(index == 0){
+                head = new Node<>(data);
+                tail = head;
+            }else{
+                throw new IndexOutOfBoundsException();
+            }
+        }
+    }
+
     public Node<T> getItemAt(int index){
         if(head == null) throw new IndexOutOfBoundsException();
         Node<T> tmpNode = head;
@@ -108,6 +127,10 @@ public class LinkedList<T> {
         }
     }
 
+    public int getLength() {
+        return length;
+    }
+
     public void print(){
         if(head != null){
             Node<T> tmpNode = head;
@@ -119,25 +142,6 @@ public class LinkedList<T> {
         }else{
             System.out.println("List is empty");
         }
-    }
-
-    public void insert(T data, int index){
-        //if index is too big throw exception
-        if(head != null){
-            Node<T> targetNode = getItemAt(index);
-            targetNode.data = data;
-        }else{
-            if(index == 0){
-                head = new Node<>(data);
-                tail = head;
-            }else{
-                throw new IndexOutOfBoundsException();
-            }
-        }
-    }
-
-    public int getLength() {
-        return length;
     }
 
     public T getHead() {
